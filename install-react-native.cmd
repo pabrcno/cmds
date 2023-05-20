@@ -1,32 +1,5 @@
 @echo off
-
-set ANDROID_STUDIO_PATH="C:\Program Files\Android\Android Studio"
-
-IF EXIST %ANDROID_STUDIO_PATH% (
-    ECHO Android Studio is already installed.
-) ELSE (
-    ECHO Android Studio is not installed.
-    
-    echo Downloading Command Line Tools...
-
-    powershell -Command "Invoke-WebRequest -OutFile cmdline-tools.zip https://dl.google.com/android/repository/commandlinetools-win-7583922_latest.zip"
-
-    echo Extracting Command Line Tools...
-    tar -xvf cmdline-tools.zip -C %LOCALAPPDATA%\Android\Sdk
-
-    echo Removing downloaded zip...
-    del cmdline-tools.zip
-
-    echo Setting environment variable...
-    setx PATH "%PATH%;%LOCALAPPDATA%\Android\Sdk\cmdline-tools\latest\bin"
-
-    echo Updating SDK Manager...
-    call sdkmanager --update
-    sdkmanager "platform-tools" "platforms;android-29" "build-tools;29.0.2" "emulator"
-)
-
-
-echo Installing Global Dependencies...
+echo Installing Global Dependencies for react native...
 
 REM Check Node and npm installation
 node -v || (
