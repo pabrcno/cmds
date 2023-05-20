@@ -1,18 +1,5 @@
 @echo off
-echo Installing Global Dependencies for react native...
-
-REM Check Node and npm installation
-node -v || (
-    echo Node.js is not installed.
-    echo Please install Node.js from https://nodejs.org/ before running this script.
-    exit /b
-)
-
-npm -v || (
-    echo npm is not installed.
-    echo Please install npm (usually comes with Node.js) before running this script.
-    exit /b
-)
+echo Installing Global Dependencies...
 
 echo Installing Expo CLI...
 call npm install --global expo-cli
